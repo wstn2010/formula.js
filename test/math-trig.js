@@ -677,6 +677,8 @@ describe('Math & Trig', function() {
 
   it("SUMIF", function() {
     mathTrig.SUMIF([1, 2, 3], '>2').should.equal(3);
+    mathTrig.SUMIF([1, 2, 3], '>2', [4, 5, 6]).should.equal(6);
+    mathTrig.SUMIF(['cat1', 'cat2', 'cat3'], 'cat1', [4, 5, 6]).should.equal(4);
     mathTrig.SUMIF([
       [1, 1],
       [2, 2],
