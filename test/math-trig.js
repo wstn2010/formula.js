@@ -688,13 +688,19 @@ describe('Math & Trig', function() {
   });
 
   it("SUMIFS", function() {
-    mathTrig.SUMIFS([1, 2, 3], '>1', '<3').should.equal(2);
-    mathTrig.SUMIFS([
-      [1, 1],
-      [2, 2],
-      [3, 3]
-    ], '>1', '<3').should.equal(4);
-    mathTrig.SUMIFS([1, 'invalid', 3], '>1', '<3').should.equal(error.value);
+    // mathTrig.SUMIFS([1, 2, 3], '>1', '<3').should.equal(2);
+    // mathTrig.SUMIFS([
+    //   [1, 1],
+    //   [2, 2],
+    //   [3, 3]
+    // ], '>1', '<3').should.equal(4);
+    // mathTrig.SUMIFS([1, 'invalid', 3], '>1', '<3').should.equal(error.value);
+
+    mathTrig.SUMIFS([1, 2, 3], [1, 2, 3], '>1', [1, 2, 3], '<3').should.equal(2);
+    mathTrig.SUMIFS([1, 2, 3], ['P', 'P', 'Q'], 'P', ['X', 'Y', 'Z'], 'Y').should.equal(2);
+
+    mathTrig.SUMIFS([1, 2, 3], '>1').should.equal(error.error);
+
   });
 
   it('SUMPRODUCT', function() {
